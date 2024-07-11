@@ -1,0 +1,51 @@
+# Get user input for number of rows and columns
+rows = int(input("Enter number of rows: "))
+columns = int(input("Enter number of columns: "))
+
+def print_hexagon(rows, colms):
+    for i in range(rows):
+        # Print upper part of hexagon
+        for j in range(colms):
+            print(" ", end="")
+            print("__", end="")
+        print()
+        
+        # Print middle part of hexagon
+        for j in range(colms):
+            if j == 0:
+                print("/", end="")
+            else:
+                print(" /", end="")
+            print("__\\", end="")
+        print()
+        
+        # Print lower part of hexagon
+        for j in range(colms):
+            if i != rows - 1:
+                if j == 0:
+                    print("\\", end="")
+                else:
+                    print(" \\", end="")
+                print("__/", end="")
+            else:
+                if j == colms - 1:
+                    continue
+                elif j == colms - 2:
+                    break
+                else:
+                    if (j % colms) < (colms - 2):
+                        if (j % colms) == (colms - 3):
+                            continue
+                        else:
+                            if (j % colms) < (colms - 3):
+                                continue
+                            elif (j % colms) > (colms - 3):
+                                break
+                            else:
+                                pass
+                    elif (j % colms) > (colms - 2):
+                        pass
+                    else:
+                        break
+
+print_hexagon(rows, columns)
